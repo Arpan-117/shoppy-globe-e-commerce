@@ -27,7 +27,7 @@ function Cart() {
 
       <p>Cart Total: {totalPrice}</p>
       {/* {console.log(totalPrice)} */}
-      <button onClick={() => dispatch(clearCart)}>Clear Cart</button>
+      <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
     </div>
   )
 }

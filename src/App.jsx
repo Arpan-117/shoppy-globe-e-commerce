@@ -1,9 +1,13 @@
+import { lazy, Suspense } from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router"
 import Header from './components/Header'
 import Homepage from './pages/Homepage'
-import Cart from './components/Cart'
+// import Cart from './components/Cart'
 import ProductDetail from './components/ProductDetail'
+import NotFound from './pages/NotFound'
+
+const Cart = lazy(() => import('./components/Cart'));
 
 function App() {
 
@@ -14,8 +18,9 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path='cart' element={<Cart />} />
           <Route path='product-details/:productId' element={<ProductDetail />} />
-          <Route path='checkout' element={<Cart />} />
+          <Route path='checkout' element={<Suspense fallback=<div>Loading...</div> > <Cart /> </Suspense>} />
         </Route>
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

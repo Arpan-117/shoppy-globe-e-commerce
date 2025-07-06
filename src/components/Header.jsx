@@ -13,18 +13,18 @@ function Header() {
   }
 
   return (
-    <>
-      <div className='py-4 px-4 flex flex-row bg-[#FEFAF6] border-b-[#EADBC8] border-2'>
+    <div className='bg-[#E8E4D6] py-4'>
+      <div className='md:py-2 md:px-4 flex flex-row bg-[#096B68] fixed top-0 w-full'>
 
         <div className='basis-1/4'>
-          <h1 className='font-semibold text-3xl text-[#DAC0A3]'>Shoppy Globe</h1>
+          <h1 className='font-semibold lg:text-3xl md:text-2xl text-[#FFFBDE]'>Shoppy Globe</h1>
         </div>
 
         <div className='basis-3/4 py-2'>
           <ul className='flex justify-around'>
 
             <li>
-              <NavLink to="/" className={({ isActive }) => isActive ? "text-[#102C57] underline font-bold" : "font-semibold text-[#DAC0A3]"}>
+              <NavLink to="/" className={({ isActive }) => isActive ? "text-[#FFFBDE] underline font-bold" : "font-semibold text-[#FFFBDE]"}>
                 Home
               </NavLink>
             </li>
@@ -50,7 +50,7 @@ function Header() {
       </div>
 
       <Outlet />
-    </>
+    </div>
   )
 }
 

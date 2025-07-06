@@ -1,8 +1,42 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
+import { useDispatch } from 'react-redux'
+import { addItem } from '../utils/cartSlice'
 
-function ProductItem() {
+function ProductItem(props) {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleViewDetails = (productId) => {
+    navigate(`product-details/${productId}`);
+  }
+
+  const handleAddToCart = (item) => {
+      dispatch(addItem(item));
+    }
+
   return (
-    <div>ProductItem</div>
+    <div className='md:py-4'>
+
+      <div className='flex flex-row'>
+        <div className='basis-1/3'>
+          <img src={props.item.thumbnail} alt='product-image' />
+        </div>
+        <div className='basis-2/3'>
+          <p className='text-[#129990]'><strong>{props.item.title}</strong></p> 
+          <p className='text-[#129990]'><span className='font-semibold'>Price: $</span>{props.item.price}</p>
+          <br className='hidden lg:block' />
+          <div className='px-px py-px lg:inline'>
+          <button onClick={() => handleViewDetails(props.item.id)} className='border-2 border-[#129990] text-[#129990] px-2 py-2 rounded-md md:font-semibold'>View Details</button>
+          </div>
+          <div className='px-px py-px lg:inline'>
+          <button onClick={() => handleAddToCart(props.item)} className='border-2 bg-[#129990] border-[#129990] text-[#E8E4D6] px-2 py-2 rounded-md md:font-semibold'>Add to Cart</button>
+          </div>
+        </div>
+      </div>
+              
+    </div>
   )
 }
 

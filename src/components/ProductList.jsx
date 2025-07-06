@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useProducts from '../utils/useProducts'
-import { useNavigate } from 'react-router'
+// import { useNavigate } from 'react-router'
+import ProductItem from './ProductItem';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -19,7 +20,7 @@ function ProductList() {
   // console.log(data);
   // console.log(products);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSearch = () => {
     const items = products.filter((product) => {
@@ -28,33 +29,38 @@ function ProductList() {
     setFilteredProducts(items);
   }
 
-  const handleViewDetails = (productId) => {
-    navigate(`product-details/${productId}`);
-  }
+  // const handleViewDetails = (productId) => {
+  //   navigate(`product-details/${productId}`);
+  // }
 
   if (loading) return <p>Loading products...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
-      <h2>Product List</h2>
+      <h2 className='text-center md:text-3xl text-[#096B68] md:py-4'>Choose from a wide variety of products...</h2>
 
-      <div>
+      <div className='text-center md:py-4'>
         <input type="text"
           name="search"
           value={searchValue}
-          placeholder="Search using product name or brand..."
+          placeholder="Search by product name or brand..."
+          className='border border-[#096B68] rounded-md md:w-80 md:py-2'
           onChange={(e) => setSearchValue(e.target.value)} />
-        <button onClick={handleSearch}>Find</button>
+        <span className='px-4'>
+          <button onClick={handleSearch} className='bg-[#096B68] text-[#E8E4D6] md:font-semibold rounded-md md:px-4 md:py-2'>Find</button>
+        </span>
       </div>
 
-      <div className='pt-4'>
-        <ul className='grid grid-cols-4 gap-4'>
+      <div className='md:pt-4'>
+        <ul className='md:grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {filteredProducts.map(product => (
             <li key={product.id} className='border rounded'>
-              <strong>{product.title}</strong>: ${product.price}
+
+              <ProductItem item={product} />
+              {/* <strong>{product.title}</strong>: ${product.price}
               <br />
-              <button onClick={() => handleViewDetails(product.id)}>View Details</button>
+              <button onClick={() => handleViewDetails(product.id)}>View Details</button> */}
             </li>
           ))}
         </ul>

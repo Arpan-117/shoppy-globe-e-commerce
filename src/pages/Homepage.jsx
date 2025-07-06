@@ -6,8 +6,10 @@ function Homepage() {
     <>
 
         {/* Hero Section */}
-        <div className="bg-[url('src/assets/hero_banner.png')] bg-cover h-[28rem] flex items-center">
-        <div className='w-1/2 px-16'>
+        {/* <div className="bg-[url('src/assets/hero_banner.png')] bg-cover h-[28rem] flex items-center"> */}
+        <div className='md:pt-8'>
+            <div className="md:bg-[url('src/assets/banner.png')] md:bg-cover md:h-[500px] md:w-full"></div>
+        {/* <div className='w-1/2 px-16'>
 
             <div>
                 <h1 className='font-semibold text-7xl py-8 text-[#DAC0A3]'>Shoppy Globe</h1>
@@ -21,7 +23,7 @@ function Homepage() {
                 From fashion to gadgets—shop effortlessly, anytime.
                 </p>
             </div>
-        </div>
+        </div> */}
     </div>
 
     {/* Products Section */}
