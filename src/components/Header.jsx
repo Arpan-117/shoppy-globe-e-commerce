@@ -9,15 +9,17 @@ function Header() {
 
   let totalItems;
   if (allItems.length > 0) {
-  totalItems = allItems.map(item => item.quantity).reduce((acc, quantity) => acc+quantity);
+    totalItems = allItems.map(item => item.quantity).reduce((acc, quantity) => acc + quantity);
   }
 
   return (
-    <div className='bg-[#E8E4D6] py-4'>
+    <div className='bg-[#FAF9F6] py-4'>
       <div className='md:py-2 md:px-4 flex flex-row bg-[#096B68] fixed top-0 w-full'>
 
         <div className='basis-1/4'>
-          <h1 className='font-semibold lg:text-3xl md:text-2xl text-[#FFFBDE]'>Shoppy Globe</h1>
+          <NavLink to='/'>
+            <h1 className='font-semibold lg:text-3xl md:text-2xl text-[#FFFBDE]'>Shoppy Globe</h1>
+          </NavLink>
         </div>
 
         <div className='basis-3/4 py-2'>
@@ -36,11 +38,11 @@ function Header() {
             </li> */}
 
             <li>
-              <NavLink to="/cart" className={({ isActive }) => isActive ? "text-[#102C57] underline font-bold" : "font-semibold text-[#DAC0A3]"}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className='px-2 size-8 inline'>
-              {/* <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--> */}
-              <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-              {totalItems ? totalItems : null}
+              <NavLink to="/cart" className={({ isActive }) => isActive ? "text-[#FFFBDE] underline font-bold" : "font-semibold text-[#FFFBDE]"}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className='px-2 size-8 inline'>
+                  {/* <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--> */}
+                  <path fill="#FFFBDE" d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg>
+                {totalItems ? totalItems : null}
               </NavLink>
             </li>
 
@@ -49,7 +51,10 @@ function Header() {
 
       </div>
 
-      <Outlet />
+      <div className='md:pt-8 md:min-h-lvh'>
+        <Outlet />
+      </div>
+
     </div>
   )
 }

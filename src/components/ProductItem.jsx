@@ -28,10 +28,10 @@ function ProductItem(props) {
           <p className='text-[#129990]'><span className='font-semibold'>Price: $</span>{props.item.price}</p>
           <br className='hidden lg:block' />
           <div className='px-px py-px lg:inline'>
-          <button onClick={() => handleViewDetails(props.item.id)} className='border-2 border-[#129990] text-[#129990] px-2 py-2 rounded-md md:font-semibold'>View Details</button>
+          <button onClick={() => handleViewDetails(props.item.id)} className='border-2 border-[#129990] text-[#129990] px-2 py-2 rounded-md md:font-semibold hover:scale-105'>View Details</button>
           </div>
-          <div className='px-px py-px lg:inline'>
-          <button onClick={() => handleAddToCart(props.item)} className='border-2 bg-[#129990] border-[#129990] text-[#E8E4D6] px-2 py-2 rounded-md md:font-semibold'>Add to Cart</button>
+          <div className='px-2 py-2 lg:inline'>
+          <button onClick={() => handleAddToCart(props.item)} className='border-2 bg-[#129990] border-[#129990] text-[#FAF9F6] px-2 py-2 rounded-md md:font-semibold hover:scale-105'>Add to Cart</button>
           </div>
         </div>
       </div>

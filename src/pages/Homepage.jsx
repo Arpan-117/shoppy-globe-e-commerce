@@ -7,7 +7,7 @@ function Homepage() {
 
         {/* Hero Section */}
         {/* <div className="bg-[url('src/assets/hero_banner.png')] bg-cover h-[28rem] flex items-center"> */}
-        <div className='md:pt-8'>
+        <div>
             <div className="md:bg-[url('src/assets/banner.png')] md:bg-cover md:h-[500px] md:w-full"></div>
         {/* <div className='w-1/2 px-16'>
 
