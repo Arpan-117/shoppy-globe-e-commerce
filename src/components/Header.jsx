@@ -14,15 +14,15 @@ function Header() {
 
   return (
     <div className='bg-[#FAF9F6] py-4'>
-      <div className='md:py-2 md:px-4 flex flex-row bg-[#096B68] fixed top-0 w-full'>
+      <div className='py-2 px-4 flex flex-row bg-[#096B68] fixed top-0 w-full'>
 
-        <div className='basis-1/4'>
+        <div className='py-2 basis-1/3 md:basis-1/4'>
           <NavLink to='/'>
-            <h1 className='font-semibold lg:text-3xl md:text-2xl text-[#FFFBDE]'>Shoppy Globe</h1>
+            <h1 className='font-semibold text-xl md:text-2xl text-[#FFFBDE]'>Shoppy Globe</h1>
           </NavLink>
         </div>
 
-        <div className='basis-3/4 py-2'>
+        <div className='basis-2/3 md:basis-3/4 py-2'>
           <ul className='flex justify-around'>
 
             <li>
