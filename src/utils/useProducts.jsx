@@ -12,6 +12,7 @@ const useProducts = (prdId = null) => {
     //     setFetchURL(`https://dummyjson.com/products`);
     // }
 
+    // Fetching data from API according to the arguments received
     useEffect(() => {
         let fetchURL;
         if (prdId != null) {
@@ -35,6 +36,7 @@ const useProducts = (prdId = null) => {
             } catch (err) {
                 setError(err.message);
             } finally {
+                // setting loading as false when data has been fetched or error has been found
                 setLoading(false);
             }
         };

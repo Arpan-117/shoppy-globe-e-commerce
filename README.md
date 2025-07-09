@@ -1,12 +1,73 @@
-# React + Vite
+# 🛍️ Shoppy Globe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Shoppy Globe** is a modern e-commerce frontend application built with **Vite React**, **React-Redux**, and **React Router**. It fetches products from an API and lets users browse, search, view details, and manage a shopping cart.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🏠 **Home Page**
+  - Displays all products fetched from an API
+  - Includes a search field to filter products by name
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📄 **Product Details Page**
+  - Dynamic routing with product IDs
+  - Shows detailed information about each product
+
+- 🛒 **Cart Page**
+  - View all added products
+  - Increase/decrease item quantity
+  - Remove individual items or clear the entire cart
+  - Displays total cart value
+
+- 🧾 **Checkout Page**
+  - Form to collect name, email, 10-digit phone number, and address
+  - Includes form validations
+
+- 💳 **Payments Page**
+  - Placeholder page under development/maintenance
+
+- ⚡ State management with **React-Redux**
+  - Uses reducers to manage cart state globally
+
+- 🚦 **Routing** with **React Router**
+  - Seamless page navigation
+
+---
+
+## 🧰 Tech Stack & Tools
+
+- **Vite** + **React**
+- **React Router DOM** for routing
+- **React-Redux** for state management
+- **Redux Toolkit** used for setup
+- **Fetch API** to get product data
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/Arpan-117/shoppy-globe-e-commerce
+cd shoppy-globe-e-commerce
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Run the Development Server
+
+```bash
+npm run dev
+```
+
+### 4️⃣ Build for Production
+
+```bash
+npm run build
+```

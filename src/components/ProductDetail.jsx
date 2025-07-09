@@ -3,17 +3,22 @@ import useProducts from '../utils/useProducts'
 import { useParams, useNavigate, Link } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../utils/cartSlice'
+import { MoonLoader } from 'react-spinners'
+import ScrollToTop from './ScrollToTop'
 
 function ProductDetail() {
   const [product, setProduct] = useState(null);
 
+  // Accessing the params from react-router to keep track of product id from custom route param
   const productId = useParams();
-  const navigate = useNavigate();
   // console.log(productId);
-  // const fetchURL = `https://dummyjson.com/products/${productId.productId}`;
+
+  // Destruction the result from the custom hook to fetch product details by passing product id
   const { data, loading, error } = useProducts(productId.productId);
+  // using dispatch from react-redux to dispatch actions to the reducer
   const dispatch = useDispatch();
 
+  // re-rendering the component to display the details when data has been fetched
   useEffect(() => {
     if (data) {
       setProduct(data);
@@ -24,13 +29,30 @@ function ProductDetail() {
     dispatch(addItem(item));
   }
 
-  // console.log(data);
+  // console.log(product);
 
-  if (loading) return <p>Loading products...</p>;
-  if (error) return <p>Error: {error}</p>;
+  // loading spinner when product details are being fetched
+  if (loading) return (
+    <div className='px-8 lg:px-16 py-16 text-center'>
+      <div className='mx-auto text-justify inline-block'>
+        <MoonLoader
+          color='#129990'
+          size={60}
+          aria-label="Loading Spinner"
+          data-testid="loader" />
+      </div>
+    </div>
+  );
+  // display error details if product details cannot be fetched
+  if (error) return (
+    <div className='px-8 lg:px-16 py-16 lg:py-8'>
+      <p className='py-4 text-lg text-center'>Error: {error}</p>
+    </div>
+  );
 
   return (
     <div className='px-8 lg:px-16 py-16'>
+    <ScrollToTop />
 
       <div className='md:px-4 md:py-4'>
         <Link to='/'>
@@ -54,10 +76,26 @@ function ProductDetail() {
             <h3 className='font-bold text-3xl text-[#096B68] underline'>{product.title}</h3>
             <p className='text-sm'>Rating - {product.rating}⭐</p>
             <br />
-            <div className='md:pt-2'>
+            <div className='pt-2'>
               <p className='font-bold text-2xl md:py-4'>$ {product.price}</p>
               <h4 className='font-semibold text-2xl text-[#129990]'>Product Description</h4>
-              <p className='md:py-2'>{product.description}</p>
+              <p className='py-2'>{product.description}</p>
+            </div>
+            <div className='pt-2'>
+
+              {/* Check if brand exists */}
+              { product.brand && <p className='py-4 text-xl'><span className='text-[#129990] font-semibold text-2xl'>Brand:</span> {product.brand}</p> }
+
+              <h4 className='font-semibold text-2xl text-[#129990]'>Product Dimensions</h4>
+
+              {/* Check if dimensions for product has been fetched */}
+              { product.dimensions != null && <p className='pt-2'><span className='font-semibold text-lg'>Width:</span> {product.dimensions.width}</p> }
+              { product.dimensions != null && <p className=''><span className='font-semibold text-lg'>Height:</span> {product.dimensions.height}</p> }
+              { product.dimensions != null && <p className='pb-2'><span className='font-semibold text-lg'>Depth:</span> {product.dimensions.depth}</p> }
+            </div>
+            <div className='pt-2'>
+              <p className='pt-2'><span className='font-semibold text-lg'>Warranty Info:</span> {product.warrantyInformation}</p>
+              <p className=''><span className='font-semibold text-lg'>Shipping Info:</span> {product.shippingInformation}</p>
             </div>
           </div>
 

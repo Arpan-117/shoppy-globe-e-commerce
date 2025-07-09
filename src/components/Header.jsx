@@ -1,7 +1,5 @@
-import React from 'react'
 import { NavLink, Outlet } from 'react-router'
 import { useSelector } from 'react-redux'
-import store from '../utils/store'
 
 function Header() {
 
@@ -14,7 +12,7 @@ function Header() {
 
   return (
     <div className='bg-[#FAF9F6] py-4'>
-      <div className='py-2 px-4 flex flex-row bg-[#096B68] fixed top-0 w-full'>
+      <div className='py-2 px-4 flex flex-row bg-[#096B68] fixed top-0 w-full z-10'>
 
         <div className='py-2 basis-1/3 md:basis-1/4'>
           <NavLink to='/'>
@@ -31,12 +29,6 @@ function Header() {
               </NavLink>
             </li>
 
-            {/* <li>
-              <NavLink to="/products" className={({ isActive }) => isActive ? "text-[#102C57] underline font-bold" : "font-semibold text-[#DAC0A3]"}>
-                Products
-              </NavLink>
-            </li> */}
-
             <li>
               <NavLink to="/cart" className={({ isActive }) => isActive ? "text-[#FFFBDE] underline font-bold" : "font-semibold text-[#FFFBDE]"}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className='px-2 size-8 inline'>
@@ -51,6 +43,7 @@ function Header() {
 
       </div>
 
+      {/* using outlet from react-router to display different components below the header according to the route */}
       <div className='md:pt-8 min-h-lvh'>
         <Outlet />
       </div>

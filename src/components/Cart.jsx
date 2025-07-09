@@ -1,31 +1,20 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { clearCart } from '../utils/cartSlice'
 import CartItem from './CartItem'
 import CartCalculation from './CartCalculation'
+import ScrollToTop from './ScrollToTop'
 
 function Cart() {
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  //accessing all items saved in cart in redux store
   const cartItems = useSelector((store) => (store.cart.items));
-
-  // const totalPrice = parseFloat((cartItems.reduce((acc, item) => acc+item.price*item.quantity, 0)).toFixed(2));
-  // const totalTax = parseFloat((totalPrice * (12 / 100)).toFixed(2));
-  // const totalCost = totalPrice + totalTax;
-  // let totalItems;
-  // if (cartItems.length > 0) {
-  // totalItems = cartItems.map(item => item.quantity).reduce((acc, quantity) => acc+quantity);
-  // }
-  // console.log(tp);
-
-  // const handleCheckout = () => {
-  //   alert('Cannot proceed ahead! Website still in development!');
-  // }
 
   return (
     <div className='px-8 lg:px-16 py-16 lg:py-8'>
+    <ScrollToTop />
+    {/* ternary operator to conditionally render if cart is empty */}
     { cartItems.length > 0 ? 
     <div className='md:px-4 lg:py-4'>
       <h3 className='text-center text-2xl md:text-3xl text-[#096B68] font-semibold py-4'>Your Cart</h3>
@@ -33,6 +22,7 @@ function Cart() {
       <div className='md:flex md:pt-16 md:pb-8 gap-4'>
         <div className='md:basis-2/3'>
         <ul>
+        {/* iterating over all the items and passing wach of them as props to child component */}
           {cartItems.map((item) => (
             <CartItem key={item.id} product={item} />
           ))}
@@ -40,28 +30,8 @@ function Cart() {
         </div>
 
         <div className='py-4 md:py-0 md:basis-1/3'>
-
+        {/* child component that calculates the value of cart items */}
           <CartCalculation />
-          {/* <h4 className='text-center font-semibold text-xl text-[#129990]'>PRICE DETAILS</h4>
-          <br />
-
-          <div className='flex flex-row px-4'>
-
-            <div className='basis-1/2'>
-              <p className='py-2'>Price({totalItems} items):</p>
-              <p className='py-2'>Tax(12%):</p>
-              <hr/>
-              <p className='py-2 font-semibold text-lg'>Total Amount</p>
-            </div>
-
-            <div className='basis-1/2 text-right'>
-              <p className='py-2'>${totalPrice}</p>
-              <p className='py-2'>${totalTax}</p>
-              <hr/>
-              <p className='py-2 font-semibold text-lg'>${totalCost}</p>
-            </div>
-
-          </div> */}
 
           <div className='text-center py-2'>
             <Link to='/checkout'>

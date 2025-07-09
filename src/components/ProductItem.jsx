@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../utils/cartSlice'
@@ -8,10 +7,12 @@ function ProductItem(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // Navigate to custom route that uses product id
   const handleViewDetails = (productId) => {
     navigate(`product-details/${productId}`);
   }
 
+  // function to dispatch action to reducer
   const handleAddToCart = (item) => {
       dispatch(addItem(item));
     }

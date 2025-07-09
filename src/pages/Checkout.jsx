@@ -3,6 +3,7 @@ import CartCalculation from '../components/CartCalculation';
 import { Link, useNavigate } from 'react-router';
 
 function Checkout() {
+    // state variables to keep track of entered data and errors if found
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -12,6 +13,7 @@ function Checkout() {
     });
     const [errors, setErrors] = useState({});
 
+    // function for controlled input
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -19,7 +21,9 @@ function Checkout() {
 
     const navigate = useNavigate();
 
+    // function for checking form validation
     const validate = () => {
+        // clearing previous errors if any
         const newErrors = {};
 
         if (!formData.firstName.trim()) {
@@ -45,13 +49,13 @@ function Checkout() {
 
         setErrors(newErrors);
 
+        // returns true if no errors exist
         return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = () => {
+        // calling function to validate form input and proceed to payment page if the return value is true
         if (validate()) {
-            alert('All fields are valid! Proceeding to payment...');
-            // Here, handle the payment logic or navigate to payment page.
             navigate('/payment');
         } else {
             alert('Please correct the errors in the form.');

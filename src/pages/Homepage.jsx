@@ -1,29 +1,15 @@
-import React from 'react'
 import ProductList from '../components/ProductList'
+import ScrollToTop from '../components/ScrollToTop'
 
 function Homepage() {
     return (
         <>
+            {/* Component that helps to display the page from the top */}
+            <ScrollToTop />
 
             {/* Hero Section */}
-            {/* <div className="bg-[url('src/assets/hero_banner.png')] bg-cover h-[28rem] flex items-center"> */}
             <div>
                 <div className="bg-[url('src/assets/banner-mobile.png')] md:bg-[url('src/assets/banner-tablet.png')] lg:bg-[url('src/assets/banner.png')] bg-cover md:bg-cover h-[250px] md:h-[250px] lg:h-[500px] md:w-full"></div>
-                {/* <div className='w-1/2 px-16'>
-
-            <div>
-                <h1 className='font-semibold text-7xl py-8 text-[#DAC0A3]'>Shoppy Globe</h1>
-            </div>
-
-            <div>
-                <p className='font-semibold text-2xl py-2 text-[#102C57]'>
-                "Everything You Need. Just a Click Away."
-                </p>
-                <p className='text-lg py-2 text-[#102C57]'>
-                From fashion to gadgets—shop effortlessly, anytime.
-                </p>
-            </div>
-        </div> */}
             </div>
 
             {/* Products Section */}
