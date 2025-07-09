@@ -51,7 +51,7 @@ function Header() {
 
       </div>
 
-      <div className='md:pt-8 md:min-h-lvh'>
+      <div className='md:pt-8 min-h-lvh'>
         <Outlet />
       </div>
 

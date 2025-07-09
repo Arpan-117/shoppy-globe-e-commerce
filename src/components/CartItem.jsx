@@ -19,7 +19,7 @@ function CartItem(props) {
       { console.log(props.product.quantity) } */}
         <div className='basis-2/3'>
           {/* props.product.quantity > 1 ? */}
-            <div className='md:pt-4'>
+            <div className='py-4'>
               <h3 className='py-2 font-semibold text-xl text-[#129990] underline'>{props.product.title}</h3>
               <p className='md:py-4 font-semibold text-lg'>$ {props.product.price}</p>
               <div className='py-2'>

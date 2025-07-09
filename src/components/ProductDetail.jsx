@@ -30,7 +30,7 @@ function ProductDetail() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className='lg:px-16 lg:py-8'>
+    <div className='px-8 lg:px-16 py-16'>
 
       <div className='md:px-4 md:py-4'>
         <Link to='/'>
@@ -41,16 +41,16 @@ function ProductDetail() {
           </button>
         </Link>
 
-        <div className='md:flex md:py-16'>
+        <div className='md:flex md:py-16 gap-8'>
 
-          <div className='md:basis-1/3'>
+          <div className='py-4 md:py-0 md:basis-1/3'>
             <img src={product.thumbnail} alt='image' />
             <div className='mx-auto'>
-              <button onClick={() => handleAddToCart(product)} className='md:w-80 md:py-2 bg-[#129990] font-semibold text-[#FAF9F6] shadow-xl/20 hover:scale-105'>Add to Cart</button>
+              <button onClick={() => handleAddToCart(product)} className='w-full md:w-80 py-2 bg-[#129990] font-semibold text-[#FAF9F6] shadow-xl/20 hover:scale-105'>Add to Cart</button>
             </div>
           </div>
 
-          <div className='md:basis-2/3'>
+          <div className='py-4 md:py-0 md:basis-2/3'>
             <h3 className='font-bold text-3xl text-[#096B68] underline'>{product.title}</h3>
             <p className='text-sm'>Rating - {product.rating}⭐</p>
             <br />

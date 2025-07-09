@@ -59,9 +59,9 @@ function Checkout() {
     };
 
     return (
-        <div className='lg:px-16 lg:py-8'>
-            <div className='md:px-4 md:py-4'>
-                <h3 className='text-center md:text-3xl text-[#096B68] font-semibold md:py-4'>Checkout Details</h3>
+        <div className='px-8 lg:px-16 py-16 lg:py-8'>
+            <div className='md:px-4 lg:py-4'>
+                <h3 className='text-center text-2xl md:text-3xl text-[#096B68] font-semibold py-8'>Checkout Details</h3>
 
                 <div className='md:flex md:pt-16 md:pb-8 gap-4'>
 
@@ -128,7 +128,7 @@ function Checkout() {
                         </form>
                     </div>
 
-                    <div className='md:basis-1/3'>
+                    <div className='py-4 md:py-0 md:basis-1/3'>
                         <CartCalculation />
                         <div className='text-center py-2'>
                         
